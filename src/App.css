@@ -1,0 +1,31 @@
+body{
+  background-image:linear-gradient(to bottom, rgb(248, 246, 246), rgb(223, 221, 221));
+}
+
+.page-transition {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+/* Triggered state: fully visible, in place */
+.page-transition.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Optional: stagger children inside the page so they don't all pop in at once */
+.page-transition.visible > * {
+    animation: fadeSlideIn 0.5s ease forwards;
+}
+
+@keyframes fadeSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
